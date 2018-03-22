@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+
+<h1>Dodaj/edytuj autora</h1>
+
+<form th:action="@{/authors}" th:method="post" th:object="${author}">
+    <input type="hidden" th:field="*{id}">
+    <label>Imię:</label>
+    <input type="text" th:value="${author.name}"
+           th:field="*{name}">
+    <label>Nazwisko:</label>
+    <input type="text" th:value="${author.surname}"
+           th:field="*{surname}">
+    <input type="submit" th:value="Save">
+</form>
+
+
+</body>
+</html>

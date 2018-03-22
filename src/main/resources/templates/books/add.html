@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+
+<h1>Dodaj/edytuj książkę</h1>
+
+
+<form th:action="@{/books}" th:method="post" th:object="${book}">
+
+    <input type="hidden" th:field="*{id}">
+    <label>Tytuł:</label>
+    <input type="text" th:field="*{title}">
+    <select th:field="*{author}">
+    <option th:each="author: ${authors}" th:value="${author.id}"
+            th:text="${author}"/>
+    </select>
+    <input type="submit" value="Save">
+
+</form>
+
+</body>
+
+</html>

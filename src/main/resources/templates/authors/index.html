@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+
+<h1>Lista autorów</h1>
+
+<p th:if="${message}" id="message"
+   th:text="${message}"/>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Show</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <br>
+    <tr th:each="author: ${authors}">
+        <td th:text="${author.name}"/>
+        <td th:text="${author.surname}"/>
+        <td><a th:href="@{'/authors/'+${author.id}+'/show'}"><img  src="icon.png"></a></td>
+        <td><a th:href="@{'/authors/'+${author.id}+'/delete'   }"><img  src="dell.jpg"></a></td>
+        <td><a th:href="@{'/authors/'+${author.id}+'/edit' }"><img src="edit.png"></a></td>
+
+    </tr>
+    </tbody>
+</table>
+<br>
+<a href="/authors/add">Dodaj nowego Authora<img src="add.png"></a></td>
+<p></p>
+<a href="/books/add">Dodaj tytuł książki do Autora</a>
+
+
+
+
+</body>
+</html>
